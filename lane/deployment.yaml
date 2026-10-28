@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fis-lane
+  labels:
+    app.kubernetes.io/name: fis-lane
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: fis-lane
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: fis-lane
+    spec:
+      containers:
+      - name: pause
+        image: registry.k8s.io/pause:3.9
+        resources:
+          requests: { cpu: 5m, memory: 8Mi }
+          limits: { cpu: 20m, memory: 16Mi }
