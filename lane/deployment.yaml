@@ -6,6 +6,7 @@ metadata:
     app.kubernetes.io/name: fis-lane
 spec:
   replicas: 1
+  progressDeadlineSeconds: 60
   selector:
     matchLabels:
       app.kubernetes.io/name: fis-lane
@@ -16,7 +17,7 @@ spec:
     spec:
       containers:
       - name: pause
-        image: registry.k8s.io/pause:fis-bad-tag
+        image: registry.k8s.io/pause:fis-bad-tag-2
         resources:
           requests: { cpu: 5m, memory: 8Mi }
           limits: { cpu: 20m, memory: 16Mi }
